@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import {
   ArrowRight,
@@ -11,6 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import ProfileMenu from "@/components/custom/profile-menu";
+import { HowItWorks } from "@/components/custom/how-it-works";
 
 export default function Home() {
   const router = useRouter();
@@ -50,15 +52,13 @@ export default function Home() {
               </Button>
             )}
             <Button onClick={() => router.push("/dashboard")}>
-              {
-                user ? "Dasboard" : "Get Started"
-              }
+              {user ? "Dasboard" : "Get Started"}
             </Button>
           </div>
         </div>
       </nav>
 
-      <section className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+      <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div>
@@ -84,11 +84,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-linear-to-br from-primary/10 to-accent/10 rounded-2xl p-8 min-h-96 flex items-center justify-center border border-border">
-            <div className="text-center space-y-4">
-              <MessageCircle className="w-16 h-16 mx-auto text-primary" />
-              <p className="text-muted-foreground">Feedback Widget Preview</p>
-            </div>
+          <div className="min-h- flex items-center justify-center">
+            <img
+              src="/images/feedback-preview.png"
+              alt="Feedback Widget Preview"
+              className="w-full max-w-md rounded-xl"
+            />
           </div>
         </div>
 
@@ -182,17 +183,16 @@ export default function Home() {
         </div>
       </section>
 
+      <HowItWorks/>
+
       <section
         id="how-it-works"
         className="max-w-7xl mx-auto px-6 py-20 md:py-32"
       >
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            How SenitWave Works
-          </h2>
-          <p className="text-xl text-muted-foreground">
             Get started in three simple steps
-          </p>
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
