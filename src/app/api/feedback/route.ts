@@ -2,6 +2,12 @@ import Feedback from "@/models/feedback.model";
 import { NextRequest, NextResponse } from "next/server";
 import { connectToDB } from "@/lib/connectDB";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
 export async function POST(req: NextRequest) {
   try {
     await connectToDB();
@@ -12,7 +18,7 @@ export async function POST(req: NextRequest) {
     if (!name || !email || !text || !rating || !siteId) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -27,21 +33,21 @@ export async function POST(req: NextRequest) {
     console.log("Feedback received:", newFeedback);
 
     return NextResponse.json(
-      { success: true, data: newFeedback, message: "Feedback submitted successfully" },
+      {
+        success: true,
+        data: newFeedback,
+        message: "Feedback submitted successfully",
+      },
       {
         status: 201,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "POST, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type",
-        },
+        headers: corsHeaders,
       }
     );
   } catch (error) {
     console.error("Error saving feedback:", error);
     return NextResponse.json(
       { success: false, message: "Server error" },
-      { status: 500 }
+      { status: 500, headers: corsHeaders } // ← FIXED
     );
   }
 }
@@ -49,10 +55,6 @@ export async function POST(req: NextRequest) {
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 204,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
-    },
+    headers: corsHeaders,
   });
 }
