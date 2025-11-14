@@ -1,8 +1,10 @@
+import { connectToDB } from "@/lib/connectDB";
 import Website from "@/models/website.model";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
+    await connectToDB();
     const { siteId } = await req.json();
     const website = await Website.findById(siteId);
     if (!website) {
