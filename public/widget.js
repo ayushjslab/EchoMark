@@ -58,7 +58,7 @@ function showToast(message, type = "info") {
   async function initWidget() {
     var currentScript = document.currentScript;
     var siteId = currentScript
-      ? new URL(currentScript.src).searchParams.get("site")
+      ? new URL(currentScript.src).searchParams.get("siteId")
       : null;
 
     if (!siteId) {
