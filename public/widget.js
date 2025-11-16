@@ -205,7 +205,7 @@ function showToast(message, type = "info") {
   </div>
   <form id="feedbackForm" style="display:flex;flex-direction:column;gap:10px;color:#111;">
     <div style="display:flex;flex-direction:column;gap:4px;">
-      <label style="font-size:12px;font-weight:500;color:#374151;">Full Name</label>
+      <label style="font-size:${formStyles.labelFontSize}px;font-weight:500;color:${hexToRgba(formStyles.labelFontColor)};">Full Name</label>
       <input type="text" placeholder=${
         formStyles.namePlaceholder
       } id="name" required style="
@@ -220,7 +220,7 @@ function showToast(message, type = "info") {
       " />
     </div>
     <div style="display:flex;flex-direction:column;gap:4px;">
-      <label style="font-size:12px;font-weight:500;color:#374151;">Email Address</label>
+      <label style="font-size:${formStyles.labelFontSize}px;font-weight:500;color:${hexToRgba(formStyles.labelFontColor)};">Email Address</label>
       <input type="email" placeholder=${
         formStyles.emailPlaceholder
       } id="email" required style="
@@ -235,7 +235,7 @@ function showToast(message, type = "info") {
       " />
     </div>
     <div style="display:flex;flex-direction:column;gap:4px;">
-      <label style="font-size:12px;font-weight:500;color:#374151;">Your Feedback</label>
+      <label style="font-size:${formStyles.labelFontSize}px;font-weight:500;color:${hexToRgba(formStyles.labelFontColor)};">Your Feedback</label>
       <textarea placeholder=${
         formStyles.feedbackPlaceholder
       } id="text" rows="2" required style="
@@ -252,7 +252,7 @@ function showToast(message, type = "info") {
       "></textarea>
     </div>
     <div style="display:flex;flex-direction:column;gap:4px;">
-      <label style="font-size:12px;font-weight:500;color:#374151;text-align:center;">Rate Your Experience</label>
+      <label style="font-size:${formStyles.labelFontSize}px;font-weight:500;color:${hexToRgba(formStyles.labelFontColor)};text-align:center;">Rate Your Experience</label>
       <div id="stars" style="display:flex;justify-content:center;gap:6px;padding:4px 0;">
         <span class="star" data-value="1" style="font-size:26px;cursor:pointer;color:${
           formStyles.starInactiveColor

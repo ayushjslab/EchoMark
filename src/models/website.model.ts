@@ -10,6 +10,8 @@ export interface IWebsite extends Document {
     namePlaceholder: string;
     emailPlaceholder: string;
     feedbackPlaceholder: string;
+    labelFontSize: number;
+    labelFontColor: string;
     buttonText: string;
     headingColor: string;
     inputBackground: string;
@@ -39,6 +41,8 @@ const websiteSchema = new Schema<IWebsite>(
       namePlaceholder: { type: String, default: "Enter your name" },
       emailPlaceholder: { type: String, default: "Enter your email" },
       feedbackPlaceholder: { type: String, default: "Write your feedback..." },
+      labelFontSize: { type: Number, default: 12 },
+      labelFontColor: { type: String, default: "#374151" },
       buttonText: { type: String, default: "Send Feedback" },
 
       headingColor: { type: String, default: "#10b981" },

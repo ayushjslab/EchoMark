@@ -9,6 +9,8 @@ interface FormStyles {
   namePlaceholder: string;
   emailPlaceholder: string;
   feedbackPlaceholder: string;
+  labelFontSize: number;
+  labelFontColor: string;
   buttonText: string;
   headingColor: string;
   inputBackground: string;
@@ -29,6 +31,8 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
     namePlaceholder: "Ayush Saini",
     emailPlaceholder: "ayush.jslab@gmail.com",
     feedbackPlaceholder: "Tell us what you think...",
+    labelFontSize: 12,
+    labelFontColor: "#374151",
     inputBackground: "#ffffff",
     headingColor: "#10b981",
     primaryBackground: "#ffffff",
@@ -122,6 +126,8 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
               key: "feedbackPlaceholder",
               type: "text",
             },
+            {label: "Label Font Size", key: "labelFontSize", type: "number"},
+            {label: "Label Font Color", key: "labelFontColor", type: "color"},
             { label: "Button Text", key: "buttonText", type: "text" },
             { label: "Heading Color", key: "headingColor", type: "color" },
             {
@@ -217,6 +223,11 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
           >
             {styles.heading}
           </h3>
+          <label
+            style={{ fontSize: `${styles.labelFontSize}px`, fontWeight: 500, color: `${styles.labelFontColor}` }}
+          >
+            Full Name
+          </label>
           <input
             type="text"
             placeholder={styles.namePlaceholder}
@@ -229,6 +240,11 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
               width: "100%",
             }}
           />
+          <label
+            style={{ fontSize: `${styles.labelFontSize}px`, fontWeight: 500, color: `${styles.labelFontColor}` }}
+          >
+            Your Email
+          </label>
           <input
             type="email"
             placeholder={styles.emailPlaceholder}
@@ -241,6 +257,11 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
               width: "100%",
             }}
           />
+          <label
+            style={{ fontSize: `${styles.labelFontSize}px`, fontWeight: 500, color: `${styles.labelFontColor}` }}
+          >
+            Your Feedback
+          </label>
           <textarea
             placeholder={styles.feedbackPlaceholder}
             rows={3}
@@ -257,9 +278,9 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
           <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
             <label
               style={{
-                fontSize: "12px",
+                fontSize: `${styles.labelFontSize}px`,
                 fontWeight: 500,
-                color: "#374151",
+                color: `${styles.labelFontColor}`,
                 textAlign: "center",
               }}
             >
