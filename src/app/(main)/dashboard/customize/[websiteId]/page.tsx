@@ -1,12 +1,38 @@
-"use client"
-import FeedbackCustomizer from '@/components/custom/customization'
-import { useParams } from 'next/navigation';
+"use client";
+
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import ButtonCustomization from "@/components/custom/button-customization";
+import FeedbackCustomizer from "@/components/custom/customization";
+import { useParams } from "next/navigation";
 
 const CustomizePage = () => {
-      const { websiteId } = useParams();
-  return (
-      <FeedbackCustomizer websiteId={websiteId as string} />
-  );
-}
+  const { websiteId } = useParams();
 
-export default CustomizePage
+  return (
+    <div className="p-6 w-full">
+      <Tabs defaultValue="form" className="w-full">
+        {/* Tab Buttons */}
+        <TabsList className="w-full flex gap-2">
+          <TabsTrigger value="form" className="flex-1">
+            Form Customization
+          </TabsTrigger>
+          <TabsTrigger value="button" className="flex-1">
+            Button Customization
+          </TabsTrigger>
+        </TabsList>
+
+        {/* Form Customizer */}
+        <TabsContent value="form" className="mt-6">
+          <FeedbackCustomizer websiteId={websiteId as string} />
+        </TabsContent>
+
+        {/* Button Customizer */}
+        <TabsContent value="button" className="mt-6">
+          <ButtonCustomization websiteId={websiteId as string} />
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default CustomizePage;

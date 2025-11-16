@@ -26,6 +26,24 @@ export interface IWebsite extends Document {
     starInactiveColor: string;
   };
 
+  buttonStyles: {
+    emoji: string;
+    fontSize: number;
+    textColor: string;
+    gradientStart: string;
+    gradientEnd: string;
+    borderRadius: number;
+    paddingX: number;
+    paddingY: number;
+    shadowIntensity: number;
+    blurAmount: number;
+    borderColor: string;
+    bottom: number;
+    right: number;
+    zIndex: number;
+    hoverBrightness: number;
+  };
+
   createdAt: Date;
   updatedAt: Date;
 }
@@ -60,6 +78,33 @@ const websiteSchema = new Schema<IWebsite>(
 
       starColor: { type: String, default: "#f59e0b" },
       starInactiveColor: { type: String, default: "#d1d5db" },
+    },
+
+    buttonStyles: {
+      emoji: { type: String, default: "💬" },
+      fontSize: { type: Number, default: 22 },
+      textColor: { type: String, default: "#ffffff" },
+
+      gradientStart: { type: String, default: "#10b981" },
+      gradientEnd: { type: String, default: "#059669" },
+
+      borderRadius: { type: Number, default: 20 },
+
+      paddingX: { type: Number, default: 10 },
+      paddingY: { type: Number, default: 6 },
+
+      shadowIntensity: { type: Number, default: 35 },
+
+      blurAmount: { type: Number, default: 6 },
+
+      borderColor: { type: String, default: "rgba(255,255,255,0.3)" },
+
+      bottom: { type: Number, default: 30 },
+      right: { type: Number, default: 30 },
+
+      zIndex: { type: Number, default: 9999 },
+
+      hoverBrightness: { type: Number, default: 110 },
     },
   },
   { timestamps: true }

@@ -50,7 +50,6 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
   const [rating, setRating] = useState(0);
   const [loading, setLoading] = useState(false);
 
-
   const updateStyle = <K extends keyof FormStyles>(
     key: K,
     value: FormStyles[K]
@@ -191,7 +190,7 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
     ${
       loading
         ? "bg-emerald-300 cursor-not-allowed opacity-70"
-        : "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-400/40 hover:shadow-emerald-500/50 hover:-translate-y-0.5 hover:brightness-110 active:scale-95"
+        : "bg-linear-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-400/40 hover:shadow-emerald-500/50 hover:-translate-y-0.5 hover:brightness-110 active:scale-95"
     }
   `}
         >
