@@ -41,13 +41,11 @@ function showToast(message, type = "info") {
 
   document.body.appendChild(toast);
 
-  // Fade in & pop
   setTimeout(() => {
     toast.style.opacity = "1";
     toast.style.transform = "translateY(0) scale(1)";
   }, 50);
 
-  // Fade out & remove
   setTimeout(() => {
     toast.style.opacity = "0";
     toast.style.transform = "translateY(-20px) scale(0.9)";

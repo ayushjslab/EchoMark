@@ -13,7 +13,7 @@ export interface IFeedback extends Document {
 const feedbackSchema = new Schema<IFeedback>(
   {
     name: { type: String, required: true, trim: true },
-    email: {type: String, required: true, unique: true},
+    email: {type: String, required: true},
     description: { type: String, required: true, trim: true },
     rating: {
       type: Number,
