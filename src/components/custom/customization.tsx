@@ -101,9 +101,9 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
 
 
   return (
-    <div className="flex flex-wrap gap-6 p-6 ml-22">
+    <div className="flex justify-center flex-wrap gap-6 p-6">
       {/* Left: Controls */}
-      <div className="flex-1 min-w-[280px] p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+      <div className="max-w-xl p-6 bg-white rounded-xl shadow-lg border border-gray-200">
         <h2 className="text-2xl font-bold mb-6 text-gray-800">
           Customize Form
         </h2>
@@ -181,18 +181,20 @@ export default function FeedbackCustomizer({websiteId}: {websiteId: string}) {
         <button
           onClick={saveStyles}
           disabled={loading}
-          className={`mt-6 w-full py-3 rounded-lg font-semibold shadow transition-all ${
-            loading
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700 text-white hover:scale-105"
-          }`}
+          className={`mt-6 w-full py-3 rounded-xl font-semibold transform transition-all duration-300
+    ${
+      loading
+        ? "bg-emerald-300 cursor-not-allowed opacity-70"
+        : "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-400/40 hover:shadow-emerald-500/50 hover:-translate-y-0.5 hover:brightness-110 active:scale-95"
+    }
+  `}
         >
           {loading ? "Saving..." : "Save Styles"}
         </button>
       </div>
 
       {/* Right: Preview */}
-      <div className="flex-1 min-w-[320px]">
+      <div className="">
         <div
           className="p-6 max-w-[380px] rounded shadow"
           style={{
