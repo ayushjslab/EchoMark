@@ -165,22 +165,22 @@ function showToast(message, type = "info") {
 <div style="
   padding:18px;
   max-width:380px;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
-  border-radius:18px;
-  box-shadow: 0 16px 50px rgba(0,0,0,0.18);
+  background: linear-gradient(135deg, ${formStyles.primaryBackground}, ${
+     formStyles.secondaryBackground
+   });
+  backdrop-filter: blur(${formStyles.blurEffect}px);
+  border-radius:${formStyles.borderRadius}px;
+  box-shadow: 0 16px 50px rgba(0,0,0,${formStyles.shadowIntensity / 100});
   font-family:'Inter',sans-serif;
-  border:1px solid rgba(16,185,129,0.2);
+  border:1px solid ${hexToRgba(formStyles.primaryColor, 0.2)};
 ">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
     <h3 style="
       margin:0;
       font-size:22px;
-      background: linear-gradient(135deg,#10b981 0%,#059669 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: ${formStyles.headingColor}
       font-weight:700;
-    ">Feedback</h3>
+    "> ${formStyles.heading}</h3>
     <button id="closeBtn" style="
       background:none;
       border:none;
@@ -199,62 +199,80 @@ function showToast(message, type = "info") {
   <form id="feedbackForm" style="display:flex;flex-direction:column;gap:10px;color:#111;">
     <div style="display:flex;flex-direction:column;gap:4px;">
       <label style="font-size:12px;font-weight:500;color:#374151;">Full Name</label>
-      <input type="text" placeholder="Ayush Saini" id="name" required style="
+      <input type="text" placeholder=${
+        formStyles.namePlaceholder
+      } id="name" required style="
         padding:10px 14px;
-        border-radius:12px;
-        border:1.5px solid rgba(16,185,129,0.3);
+        border-radius:${formStyles.borderRadius - 6}px;
+        border:1.5px solid ${hexToRgba(formStyles.primaryColor, 0.3)};
         font-size:14px;
         transition:all 0.3s ease;
         font-family:inherit;
-        background:#ffffffcc;
+        background:${formStyles.inputBackground};
         outline:none;
       " />
     </div>
     <div style="display:flex;flex-direction:column;gap:4px;">
       <label style="font-size:12px;font-weight:500;color:#374151;">Email Address</label>
-      <input type="email" placeholder="ayush.jslab@gmail.com" id="email" required style="
+      <input type="email" placeholder=${
+        formStyles.emailPlaceholder
+      } id="email" required style="
         padding:10px 14px;
-        border-radius:12px;
-        border:1.5px solid rgba(16,185,129,0.3);
+        border-radius:${formStyles.borderRadius - 6}px;
+        border:1.5px solid ${hexToRgba(formStyles.primaryColor, 0.3)};
         font-size:14px;
         transition:all 0.3s ease;
         font-family:inherit;
-        background:#ffffffcc;
+        background:${formStyles.inputBackground};
         outline:none;
       " />
     </div>
     <div style="display:flex;flex-direction:column;gap:4px;">
       <label style="font-size:12px;font-weight:500;color:#374151;">Your Feedback</label>
-      <textarea placeholder="Tell us what you think..." id="text" rows="2" required style="
+      <textarea placeholder=${
+        formStyles.feedbackPlaceholder
+      } id="text" rows="2" required style="
         padding:10px 14px;
-        border-radius:12px;
-        border:1.5px solid rgba(16,185,129,0.3);
+        border-radius:${formStyles.borderRadius - 6}px;
+        border:1.5px solid ${hexToRgba(formStyles.primaryColor, 0.3)};
         font-size:14px;
         transition:all 0.3s ease;
         resize:vertical;
         min-height:60px;
         font-family:inherit;
-        background:#ffffffcc;
+        background:${formStyles.inputBackground};
         outline:none;
       "></textarea>
     </div>
     <div style="display:flex;flex-direction:column;gap:4px;">
       <label style="font-size:12px;font-weight:500;color:#374151;text-align:center;">Rate Your Experience</label>
       <div id="stars" style="display:flex;justify-content:center;gap:6px;padding:4px 0;">
-        <span class="star" data-value="1" style="font-size:26px;cursor:pointer;color:#d1d5db;transition:all 0.2s ease;user-select:none;">★</span>
-        <span class="star" data-value="2" style="font-size:26px;cursor:pointer;color:#d1d5db;transition:all 0.2s ease;user-select:none;">★</span>
-        <span class="star" data-value="3" style="font-size:26px;cursor:pointer;color:#d1d5db;transition:all 0.2s ease;user-select:none;">★</span>
-        <span class="star" data-value="4" style="font-size:26px;cursor:pointer;color:#d1d5db;transition:all 0.2s ease;user-select:none;">★</span>
-        <span class="star" data-value="5" style="font-size:26px;cursor:pointer;color:#d1d5db;transition:all 0.2s ease;user-select:none;">★</span>
+        <span class="star" data-value="1" style="font-size:26px;cursor:pointer;color:${
+          formStyles.starInactiveColor
+        };transition:all 0.2s ease;user-select:none;">★</span>
+        <span class="star" data-value="2" style="font-size:26px;cursor:pointer;color:${
+          formStyles.starInactiveColor
+        };transition:all 0.2s ease;user-select:none;">★</span>
+        <span class="star" data-value="3" style="font-size:26px;cursor:pointer;color:${
+          formStyles.starInactiveColor
+        };transition:all 0.2s ease;user-select:none;">★</span>
+        <span class="star" data-value="4" style="font-size:26px;cursor:pointer;color:${
+          formStyles.starInactiveColor
+        };transition:all 0.2s ease;user-select:none;">★</span>
+        <span class="star" data-value="5" style="font-size:26px;cursor:pointer;color:${
+          formStyles.starInactiveColor
+        };transition:all 0.2s ease;user-select:none;">★</span>
       </div>
       <input type="hidden" id="rating" value="0" />
     </div>
     <button type="submit" style="
-      background: linear-gradient(135deg,#10b981 0%,#059669 100%);
+      background: linear-gradient(135deg, ${formStyles.primaryColor} 0%, ${
+     formStyles.secondaryColor
+   } 100%);
       color: #fff;
       padding:12px;
       border:none;
-      border-radius:14px;
+      border-radius:${formStyles.borderRadius - 4}px;
       cursor:pointer;
       font-size:14px;
       font-weight:600;
