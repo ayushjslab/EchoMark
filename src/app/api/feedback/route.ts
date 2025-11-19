@@ -35,10 +35,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const res = await axios.post(`/api/send-mail`, {
-      to: email,
-      subject: "ThankYou ! For Valuable Feedback",
-      message: `<body style="font-family: Arial, sans-serif; background:#f7f7f7; padding:20px;">
+    const res = await axios.post(
+      `${process.env.NEXT_PUBLIC_WEBSITE_URI}/api/send-email`,
+      {
+        to: email,
+        subject: "ThankYou ! For Valuable Feedback",
+        message: `<body style="font-family: Arial, sans-serif; background:#f7f7f7; padding:20px;">
     <div style="max-width:500px; margin:auto; background:white; padding:20px; border-radius:8px;">
 
       <h2 style="color:#2e8b57; margin-top:0;">Thank You for Your Feedback!</h2>
@@ -59,7 +61,8 @@ export async function POST(req: NextRequest) {
       </p>
     </div>
   </body>`,
-    });
+      }
+    );
 
     if(!res.data.success) {
        return NextResponse.json(
